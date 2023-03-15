@@ -16,3 +16,6 @@ host_key_checking = False
 
 [centos]
 192.168.63.20
+
+[windows]
+10.x.x.0
