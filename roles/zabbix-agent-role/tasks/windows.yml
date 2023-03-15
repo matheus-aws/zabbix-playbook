@@ -1,1 +1,24 @@
+- hosts: windows
+  tasks:
+    - name: Install Chocolatey
+      win_chocolatey:
+        name: chocolatey
+
+    - name: Install Zabbix-agent
+      win_chocolatey:
+        name: zabbix-agent
+
+    - name: Create Zabbix-agent config file
+      win_template:
+        src: templates/zabbix_agentd.conf.j2
+        dest: C:\zabbix_agentd.conf
+      vars:
+        zabbix_server: zabbix.example.com
+        zabbix_server_port: 10050
+        hostname: windows-host-01
+
+    - name: Restart Zabbix-agent service
+      win_service:
+        name: zabbix-agent
+        state: restarted
 
