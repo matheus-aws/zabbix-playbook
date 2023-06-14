@@ -1,21 +1,25 @@
-[all:vars]
-ansible_connection=ssh
-ansible_ssh_private_key_file=/home/kaeir0x/Documents/labs/ansible-lab/vagrant-4-labs/id_rsa
-ansible_user=root
-host_key_checking = False
+[windows:vars]
+ansible_connection=winrm
+ansible_user=Administrator
+ansible_winrm_transport=ntlm
+ansible_winrm_server_cert_validation=ignore
+ansible_port=5985
+ansible_winrm_message_encryption=auto
 
-[all]
-192.168.63.10
-192.168.63.20
-192.168.63.30
+[ubuntu:vars]
+ansible_connection=ssh
+ansible_ssh_private_key_file=/root/zabbix-playbook/keys/sd-ansible.pem
+ansible_user=ubuntu
+ansible_become=yes
+host_key_checking=False
 
 [ubuntu]
-192.168.63.10
-192.168.63.30
-54.234.30.113 ansible_ssh_private_key_file=/home/kaeir0x/Documents/labs/ansible-lab/vagrant-4-labs/caeiro-teste.pem ansible_user=ubuntu ansible_become=yes
+10.0.10.255
+10.0.3.226
+10.0.139.24
 
-[centos]
-192.168.63.20
 
 [windows]
-10.x.x.0
+10.0.11.219 ansible_password="WvToZKM.544JT7bsj0E4.%mHH;JCKo3o"
+10.0.13.87 ansible_password="F7otF=4&=mUSqm$?6kAQuP-!sSHB;6)V"
+10.0.9.39 ansible_password="@eEMn?MskEiMDKWTZIb)mQrIr6yh9jW-"

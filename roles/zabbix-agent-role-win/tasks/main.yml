@@ -1,0 +1,5 @@
+---
+# tasks file for zabbix-agent-role-win
+- name: Instalando zabbix-agent no windows
+  include: windows.yml
+

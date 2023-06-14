@@ -1,0 +1,7 @@
+---
+# handlers file for zabbix-agent-role
+
+- name: restart-agent
+  win_service:
+    name: Zabbix Agent
+    state: restarted
